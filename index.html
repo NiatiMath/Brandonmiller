@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -258,7 +258,7 @@
             margin-top: 40px;
         }
         
-        /* AdMob Ad Styles */
+        /* Styles des publicités AdMob */
         .ad-container {
             width: 100%;
             display: flex;
@@ -281,7 +281,7 @@
         }
         
         .ad-banner::before {
-            content: "Ad";
+            content: "Pub";
             position: absolute;
             top: 5px;
             right: 5px;
@@ -382,46 +382,46 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Live Streams</a></li>
-                    <li><a href="#">Movies</a></li>
-                    <li><a href="#">Upload</a></li>
+                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="#">Streams en Direct</a></li>
+                    <li><a href="#">Films</a></li>
+                    <li><a href="#">Télécharger</a></li>
                 </ul>
             </nav>
         </header>
         
-        <!-- Top Banner Ad -->
+        <!-- Bannière publicitaire supérieure -->
         <div class="ad-container">
             <div class="ad-banner">
-                AdMob Banner Ad
+                Publicité AdMob
             </div>
         </div>
         
         <section class="hero">
-            <h2>Stream Movies & Live Content</h2>
-            <p>Upload your videos and stream them to your audience in real-time. High quality streaming with minimal latency.</p>
-            <button class="btn" id="goLiveBtn">Go Live Now</button>
+            <h2>Streaming de Films et Contenus en Direct</h2>
+            <p>Téléchargez vos vidéos et diffusez-les à votre public en temps réel. Streaming de haute qualité avec une latence minimale.</p>
+            <button class="btn" id="goLiveBtn">Diffuser en Direct</button>
         </section>
         
-        <!-- Middle Banner Ad -->
+        <!-- Bannière publicitaire centrale -->
         <div class="ad-container">
             <div class="ad-banner">
-                AdMob Banner Ad
+                Publicité AdMob
             </div>
         </div>
         
         <section class="content-section">
             <div class="main-content">
-                <h2 class="section-title">Featured Content</h2>
+                <h2 class="section-title">Contenu à la Une</h2>
                 <div class="video-grid">
                     <div class="video-card">
                         <div class="video-thumb">
                             <i class="fas fa-play-circle"></i>
                         </div>
                         <div class="video-info">
-                            <h3>Action Movie Night</h3>
+                            <h3>Soirée Film d'Action</h3>
                             <p>Brandon Miller</p>
-                            <p>2.4K views • 2 days ago</p>
+                            <p>2,4K vues • il y a 2 jours</p>
                         </div>
                     </div>
                     
@@ -430,9 +430,9 @@
                             <i class="fas fa-play-circle"></i>
                         </div>
                         <div class="video-info">
-                            <h3>Sci-Fi Marathon</h3>
+                            <h3>Marathon Science-Fiction</h3>
                             <p>Brandon Miller</p>
-                            <p>1.8K views • 5 days ago</p>
+                            <p>1,8K vues • il y a 5 jours</p>
                         </div>
                     </div>
                     
@@ -441,9 +441,9 @@
                             <i class="fas fa-play-circle"></i>
                         </div>
                         <div class="video-info">
-                            <h3>Live Concert Recording</h3>
+                            <h3>Concert en Direct</h3>
                             <p>Brandon Miller</p>
-                            <p>3.1K views • 1 week ago</p>
+                            <p>3,1K vues • il y a 1 semaine</p>
                         </div>
                     </div>
                     
@@ -452,23 +452,23 @@
                             <i class="fas fa-play-circle"></i>
                         </div>
                         <div class="video-info">
-                            <h3>Documentary Premiere</h3>
+                            <h3>Avant-première Documentaire</h3>
                             <p>Brandon Miller</p>
-                            <p>4.2K views • 3 days ago</p>
+                            <p>4,2K vues • il y a 3 jours</p>
                         </div>
                     </div>
                 </div>
                 
-                <h2 class="section-title" style="margin-top: 40px;">Live Now</h2>
+                <h2 class="section-title" style="margin-top: 40px;">En Direct Maintenant</h2>
                 <div class="video-grid">
                     <div class="video-card">
                         <div class="video-thumb" style="background: linear-gradient(to right, #FF416C, #FF4B2B);">
                             <i class="fas fa-broadcast-tower"></i>
                         </div>
                         <div class="video-info">
-                            <h3>Summer Blockbuster Event</h3>
-                            <p>Brandon Miller • LIVE</p>
-                            <p>1.2K watching</p>
+                            <h3>Événement Blockbuster d'Été</h3>
+                            <p>Brandon Miller • EN DIRECT</p>
+                            <p>1,2K spectateurs</p>
                         </div>
                     </div>
                     
@@ -477,117 +477,117 @@
                             <i class="fas fa-broadcast-tower"></i>
                         </div>
                         <div class="video-info">
-                            <h3>Movie Night: Classics</h3>
-                            <p>Brandon Miller • LIVE</p>
-                            <p>845 watching</p>
+                            <h3>Soirée Cinéma : Classiques</h3>
+                            <p>Brandon Miller • EN DIRECT</p>
+                            <p>845 spectateurs</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="sidebar">
-                <h2 class="section-title">Upload Video</h2>
+                <h2 class="section-title">Télécharger une Vidéo</h2>
                 <form class="upload-form" id="uploadForm">
                     <div class="form-group">
-                        <label for="title">Video Title</label>
-                        <input type="text" id="title" placeholder="Enter title">
+                        <label for="title">Titre de la Vidéo</label>
+                        <input type="text" id="title" placeholder="Entrez le titre">
                     </div>
                     
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea id="description" rows="3" placeholder="Enter description"></textarea>
+                        <textarea id="description" rows="3" placeholder="Entrez la description"></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="thumbnail">Thumbnail</label>
+                        <label for="thumbnail">Miniature</label>
                         <input type="file" id="thumbnail">
                     </div>
                     
                     <div class="form-group">
-                        <label for="video">Video File</label>
+                        <label for="video">Fichier Vidéo</label>
                         <input type="file" id="video">
                     </div>
                     
-                    <button type="submit" class="btn upload-btn">Upload Video</button>
+                    <button type="submit" class="btn upload-btn">Télécharger la Vidéo</button>
                 </form>
                 
-                <!-- Sidebar Ad -->
+                <!-- Publicité dans la barre latérale -->
                 <div class="ad-container">
                     <div class="ad-banner">
-                        AdMob Banner Ad
+                        Publicité AdMob
                     </div>
                 </div>
                 
                 <div class="live-stream">
                     <div class="live-indicator">
                         <div class="live-dot"></div>
-                        <h2 class="section-title">Live Stream</h2>
+                        <h2 class="section-title">Stream en Direct</h2>
                     </div>
-                    <p>Go live instantly and stream to your audience</p>
+                    <p>Diffusez en direct instantanément à votre public</p>
                     <div class="player">
                         <i class="fas fa-play-circle" style="font-size: 40px;"></i>
                     </div>
-                    <button class="btn" style="width: 100%; margin-top: 15px;" id="startStreamBtn">Start Streaming</button>
+                    <button class="btn" style="width: 100%; margin-top: 15px;" id="startStreamBtn">Commencer le Streaming</button>
                 </div>
             </div>
         </section>
         
-        <!-- Bottom Banner Ad -->
+        <!-- Bannière publicitaire inférieure -->
         <div class="ad-container">
             <div class="ad-banner">
-                AdMob Banner Ad
+                Publicité AdMob
             </div>
         </div>
         
         <footer>
-            <p>© 2023 Brandon Miller Livestream. All rights reserved.</p>
-            <p>This is a demo application for streaming purposes.</p>
+            <p>© 2023 Brandon Miller Livestream. Tous droits réservés.</p>
+            <p>Ceci est une application de démonstration à des fins de streaming.</p>
         </footer>
     </div>
 
-    <!-- Interstitial Ad -->
+    <!-- Publicité interstitielle -->
     <div class="ad-overlay" id="adOverlay"></div>
     <div class="ad-interstitial" id="interstitialAd">
         <button class="ad-close" id="closeAd">×</button>
         <div class="ad-content">
-            <h3>Special Offer!</h3>
-            <p>Upgrade to Premium for an ad-free experience</p>
+            <h3>Offre Spéciale !</h3>
+            <p>Passez à Premium pour une expérience sans publicité</p>
         </div>
-        <button class="ad-button">Learn More</button>
+        <button class="ad-button">En Savoir Plus</button>
     </div>
 
     <script>
-        // Simple form handling
+        // Gestion simple du formulaire
         document.querySelector('.upload-form').addEventListener('submit', function(e) {
             e.preventDefault();
             showInterstitialAd();
             setTimeout(function() {
-                alert('Video upload functionality would be implemented in a full version. This is a UI demo.');
+                alert('La fonctionnalité de téléchargement de vidéo serait implémentée dans une version complète. Ceci est une démo UI.');
             }, 1000);
         });
         
-        // Simulate live stream button
+        // Simulation du bouton de stream en direct
         document.getElementById('startStreamBtn').addEventListener('click', function() {
             showInterstitialAd();
             setTimeout(function() {
-                alert('Live streaming would start in a full version. This is a UI demo.');
+                alert('Le streaming en direct démarrerait dans une version complète. Ceci est une démo UI.');
             }, 1000);
         });
         
-        // Simulate Go Live button in hero section
+        // Simulation du bouton "Diffuser en Direct" dans la section hero
         document.getElementById('goLiveBtn').addEventListener('click', function() {
             showInterstitialAd();
             setTimeout(function() {
-                alert('Going live functionality would be implemented in a full version. This is a UI demo.');
+                alert('La fonctionnalité de diffusion en direct serait implémentée dans une version complète. Ceci est une démo UI.');
             }, 1000);
         });
         
-        // Interstitial ad functions
+        // Fonctions pour les publicités interstitielles
         function showInterstitialAd() {
             document.getElementById('adOverlay').style.display = 'block';
             document.getElementById('interstitialAd').style.display = 'flex';
             
-            // Auto-close ad after 5 seconds
+            // Fermeture automatique de la pub après 5 secondes
             setTimeout(function() {
                 closeInterstitialAd();
             }, 5000);
@@ -601,21 +601,21 @@
         document.getElementById('closeAd').addEventListener('click', closeInterstitialAd);
         document.getElementById('adOverlay').addEventListener('click', closeInterstitialAd);
         
-        // Show an ad when the page loads
+        // Afficher une pub au chargement de la page
         window.addEventListener('load', function() {
             setTimeout(showInterstitialAd, 2000);
         });
         
-        // Simulate ad refresh every 30 seconds
+        // Simuler le rafraîchissement des pubs toutes les 30 secondes
         setInterval(function() {
             const banners = document.querySelectorAll('.ad-banner');
             banners.forEach(banner => {
-                banner.innerHTML = 'AdMob Banner Ad<br><small>New ad loaded</small>';
+                banner.innerHTML = 'Publicité AdMob<br><small>Nouvelle pub chargée</small>';
                 banner.style.background = getRandomGradient();
                 
-                // Reset after a short time
+                // Réinitialiser après un court moment
                 setTimeout(() => {
-                    banner.innerHTML = 'AdMob Banner Ad';
+                    banner.innerHTML = 'Publicité AdMob';
                 }, 2000);
             });
         }, 30000);
