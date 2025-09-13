@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brandon Miller Livestream</title>
+    <title>Black Screen Livestream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -50,6 +50,12 @@
             color: #fdbb2d;
         }
         
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
@@ -67,6 +73,49 @@
         
         nav a:hover, nav a.active {
             background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fdbb2d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a2a6c;
+            font-weight: bold;
+        }
+        
+        .premium-badge {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a2a6c;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .login-btn {
+            background: transparent;
+            border: 2px solid #fdbb2d;
+            color: #fdbb2d;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background: #fdbb2d;
+            color: #1a2a6c;
         }
         
         .hero {
@@ -258,18 +307,18 @@
             margin-top: 40px;
         }
         
-        /* Styles des publicités AdMob */
-        .ad-container {
+        /* Styles Vimeo */
+        .vimeo-container {
             width: 100%;
             display: flex;
             justify-content: center;
             margin: 20px 0;
         }
         
-        .ad-banner {
+        .vimeo-banner {
             width: 320px;
             height: 50px;
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            background: linear-gradient(to right, #1ab7ea, #0b5394);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -280,8 +329,8 @@
             overflow: hidden;
         }
         
-        .ad-banner::before {
-            content: "Pub";
+        .vimeo-banner::before {
+            content: "Vimeo";
             position: absolute;
             top: 5px;
             right: 5px;
@@ -292,64 +341,71 @@
             border-radius: 3px;
         }
         
-        .ad-interstitial {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 250px;
-            background: linear-gradient(to bottom, #3494E6, #EC6EAD);
-            border-radius: 15px;
-            z-index: 1000;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        .ad-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        
-        .ad-content {
+        .premium-required {
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
             text-align: center;
-            margin-top: 30px;
         }
         
-        .ad-content h3 {
+        .premium-required h3 {
+            color: #ffd700;
             margin-bottom: 10px;
         }
         
-        .ad-button {
-            background: #fdbb2d;
+        .upgrade-btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
             color: #1a2a6c;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            color: white;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
             cursor: pointer;
         }
         
-        .ad-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .close:hover {
+            color: white;
+        }
+        
+        .modal input {
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 999;
-            display: none;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .modal input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
         
         @media (max-width: 768px) {
@@ -361,14 +417,9 @@
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
             
-            .ad-banner {
+            .vimeo-banner {
                 width: 100%;
                 max-width: 320px;
-            }
-            
-            .ad-interstitial {
-                width: 90%;
-                max-width: 300px;
             }
         }
     </style>
@@ -378,22 +429,33 @@
         <header>
             <div class="logo">
                 <i class="fas fa-video"></i>
-                <h1>Brandon Miller Livestream</h1>
+                <h1>Black Screen Livestream</h1>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">Accueil</a></li>
-                    <li><a href="#">Streams en Direct</a></li>
-                    <li><a href="#">Films</a></li>
-                    <li><a href="#">Télécharger</a></li>
-                </ul>
-            </nav>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Accueil</a></li>
+                        <li><a href="#">Streams en Direct</a></li>
+                        <li><a href="#">Films</a></li>
+                        <li><a href="#">Télécharger</a></li>
+                    </ul>
+                </nav>
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">BS</div>
+                    <div>
+                        <div id="userName">Utilisateur</div>
+                        <div class="premium-badge" id="premiumBadge" style="display: none;">Premium</div>
+                    </div>
+                    <button class="login-btn" onclick="logout()">Déconnexion</button>
+                </div>
+                <button class="login-btn" id="loginBtn" onclick="openModal()">Connexion</button>
+            </div>
         </header>
         
-        <!-- Bannière publicitaire supérieure -->
-        <div class="ad-container">
-            <div class="ad-banner">
-                Publicité AdMob
+        <!-- Bannière Vimeo supérieure -->
+        <div class="vimeo-container">
+            <div class="vimeo-banner">
+                Publicité Vimeo - Streaming Professionnel
             </div>
         </div>
         
@@ -403,10 +465,10 @@
             <button class="btn" id="goLiveBtn">Diffuser en Direct</button>
         </section>
         
-        <!-- Bannière publicitaire centrale -->
-        <div class="ad-container">
-            <div class="ad-banner">
-                Publicité AdMob
+        <!-- Bannière Vimeo centrale -->
+        <div class="vimeo-container">
+            <div class="vimeo-banner">
+                Vimeo Pro - Intégration API (Clé requise)
             </div>
         </div>
         
@@ -420,7 +482,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Soirée Film d'Action</h3>
-                            <p>Brandon Miller</p>
+                            <p>Black Screen</p>
                             <p>2,4K vues • il y a 2 jours</p>
                         </div>
                     </div>
@@ -431,7 +493,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Marathon Science-Fiction</h3>
-                            <p>Brandon Miller</p>
+                            <p>Black Screen</p>
                             <p>1,8K vues • il y a 5 jours</p>
                         </div>
                     </div>
@@ -442,7 +504,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Concert en Direct</h3>
-                            <p>Brandon Miller</p>
+                            <p>Black Screen</p>
                             <p>3,1K vues • il y a 1 semaine</p>
                         </div>
                     </div>
@@ -453,7 +515,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Avant-première Documentaire</h3>
-                            <p>Brandon Miller</p>
+                            <p>Black Screen</p>
                             <p>4,2K vues • il y a 3 jours</p>
                         </div>
                     </div>
@@ -467,7 +529,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Événement Blockbuster d'Été</h3>
-                            <p>Brandon Miller • EN DIRECT</p>
+                            <p>Black Screen • EN DIRECT</p>
                             <p>1,2K spectateurs</p>
                         </div>
                     </div>
@@ -478,7 +540,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Soirée Cinéma : Classiques</h3>
-                            <p>Brandon Miller • EN DIRECT</p>
+                            <p>Black Screen • EN DIRECT</p>
                             <p>845 spectateurs</p>
                         </div>
                     </div>
@@ -487,7 +549,14 @@
             
             <div class="sidebar">
                 <h2 class="section-title">Télécharger une Vidéo</h2>
-                <form class="upload-form" id="uploadForm">
+                
+                <div class="premium-required" id="premiumRequired">
+                    <h3><i class="fas fa-crown"></i> Premium Requis</h3>
+                    <p>Seuls les utilisateurs Premium peuvent télécharger des vidéos</p>
+                    <button class="btn upgrade-btn" onclick="upgradeToPremium()">Passer à Premium</button>
+                </div>
+                
+                <form class="upload-form" id="uploadForm" style="display: none;">
                     <div class="form-group">
                         <label for="title">Titre de la Vidéo</label>
                         <input type="text" id="title" placeholder="Entrez le titre">
@@ -508,13 +577,15 @@
                         <input type="file" id="video">
                     </div>
                     
-                    <button type="submit" class="btn upload-btn">Télécharger la Vidéo</button>
+                    <button type="submit" class="btn upload-btn">
+                        <i class="fas fa-upload"></i> Télécharger vers Vimeo
+                    </button>
                 </form>
                 
-                <!-- Publicité dans la barre latérale -->
-                <div class="ad-container">
-                    <div class="ad-banner">
-                        Publicité AdMob
+                <!-- Bannière Vimeo dans la barre latérale -->
+                <div class="vimeo-container">
+                    <div class="vimeo-banner">
+                        Vimeo API - Connexion requise
                     </div>
                 </div>
                 
@@ -523,110 +594,198 @@
                         <div class="live-dot"></div>
                         <h2 class="section-title">Stream en Direct</h2>
                     </div>
-                    <p>Diffusez en direct instantanément à votre public</p>
+                    <p>Diffusez en direct avec Vimeo Live</p>
                     <div class="player">
                         <i class="fas fa-play-circle" style="font-size: 40px;"></i>
                     </div>
-                    <button class="btn" style="width: 100%; margin-top: 15px;" id="startStreamBtn">Commencer le Streaming</button>
+                    <button class="btn" style="width: 100%; margin-top: 15px;" id="startStreamBtn">
+                        <i class="fas fa-broadcast-tower"></i> Commencer le Streaming
+                    </button>
                 </div>
             </div>
         </section>
         
-        <!-- Bannière publicitaire inférieure -->
-        <div class="ad-container">
-            <div class="ad-banner">
-                Publicité AdMob
+        <!-- Bannière Vimeo inférieure -->
+        <div class="vimeo-container">
+            <div class="vimeo-banner">
+                Vimeo Live Streaming - Configuration API
             </div>
         </div>
         
         <footer>
-            <p>© 2023 Brandon Miller Livestream. Tous droits réservés.</p>
-            <p>Ceci est une application de démonstration à des fins de streaming.</p>
+            <p>© 2023 Black Screen Livestream. Tous droits réservés.</p>
+            <p>Intégration Vimeo - API Key requise pour fonctionnalité complète</p>
         </footer>
     </div>
 
-    <!-- Publicité interstitielle -->
-    <div class="ad-overlay" id="adOverlay"></div>
-    <div class="ad-interstitial" id="interstitialAd">
-        <button class="ad-close" id="closeAd">×</button>
-        <div class="ad-content">
-            <h3>Offre Spéciale !</h3>
-            <p>Passez à Premium pour une expérience sans publicité</p>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Connexion</h2>
+            <form id="loginForm">
+                <input type="text" id="loginName" placeholder="Nom d'utilisateur" required>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Se Connecter</button>
+            </form>
         </div>
-        <button class="ad-button">En Savoir Plus</button>
+    </div>
+
+    <!-- Upgrade Modal -->
+    <div id="upgradeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUpgradeModal()">&times;</span>
+            <h2>Passer à Premium</h2>
+            <div style="text-align: center; margin: 20px 0;">
+                <h3 style="color: #ffd700;">Premium Features</h3>
+                <ul style="text-align: left; margin: 15px 0;">
+                    <li>✓ Téléchargement de vidéos vers Vimeo</li>
+                    <li>✓ Streaming en haute qualité</li>
+                    <li>✓ Intégration Vimeo API complète</li>
+                    <li>✓ Support prioritaire</li>
+                    <li>✓ Outils d'analyse avancés</li>
+                </ul>
+                <div style="font-size: 24px; margin: 20px 0;">
+                    <span style="color: #ffd700;">€19.99</span>/mois
+                </div>
+                <button class="btn upgrade-btn" onclick="processUpgrade()" style="width: 100%;">
+                    Confirmer le Passage à Premium
+                </button>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Gestion simple du formulaire
-        document.querySelector('.upload-form').addEventListener('submit', function(e) {
+        let currentUser = null;
+        let isPremium = false;
+
+        // Gestion du formulaire de connexion
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            showInterstitialAd();
-            setTimeout(function() {
-                alert('La fonctionnalité de téléchargement de vidéo serait implémentée dans une version complète. Ceci est une démo UI.');
-            }, 1000);
-        });
-        
-        // Simulation du bouton de stream en direct
-        document.getElementById('startStreamBtn').addEventListener('click', function() {
-            showInterstitialAd();
-            setTimeout(function() {
-                alert('Le streaming en direct démarrerait dans une version complète. Ceci est une démo UI.');
-            }, 1000);
-        });
-        
-        // Simulation du bouton "Diffuser en Direct" dans la section hero
-        document.getElementById('goLiveBtn').addEventListener('click', function() {
-            showInterstitialAd();
-            setTimeout(function() {
-                alert('La fonctionnalité de diffusion en direct serait implémentée dans une version complète. Ceci est une démo UI.');
-            }, 1000);
-        });
-        
-        // Fonctions pour les publicités interstitielles
-        function showInterstitialAd() {
-            document.getElementById('adOverlay').style.display = 'block';
-            document.getElementById('interstitialAd').style.display = 'flex';
+            const name = document.getElementById('loginName').value;
+            const email = document.getElementById('loginEmail').value;
             
-            // Fermeture automatique de la pub après 5 secondes
-            setTimeout(function() {
-                closeInterstitialAd();
-            }, 5000);
-        }
-        
-        function closeInterstitialAd() {
-            document.getElementById('adOverlay').style.display = 'none';
-            document.getElementById('interstitialAd').style.display = 'none';
-        }
-        
-        document.getElementById('closeAd').addEventListener('click', closeInterstitialAd);
-        document.getElementById('adOverlay').addEventListener('click', closeInterstitialAd);
-        
-        // Afficher une pub au chargement de la page
-        window.addEventListener('load', function() {
-            setTimeout(showInterstitialAd, 2000);
+            // N'importe qui peut se connecter
+            currentUser = {
+                name: name,
+                email: email,
+                premium: false
+            };
+            
+            // Afficher les infos utilisateur
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('userInfo').style.display = 'flex';
+            document.getElementById('userName').textContent = name;
+            document.getElementById('userAvatar').textContent = name.substring(0, 2).toUpperCase();
+            
+            closeModal();
+            alert('Connexion réussie! Bienvenue ' + name);
         });
         
-        // Simuler le rafraîchissement des pubs toutes les 30 secondes
-        setInterval(function() {
-            const banners = document.querySelectorAll('.ad-banner');
-            banners.forEach(banner => {
-                banner.innerHTML = 'Publicité AdMob<br><small>Nouvelle pub chargée</small>';
-                banner.style.background = getRandomGradient();
-                
-                // Réinitialiser après un court moment
-                setTimeout(() => {
-                    banner.innerHTML = 'Publicité AdMob';
-                }, 2000);
-            });
-        }, 30000);
+        // Gestion du formulaire de téléchargement
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!isPremium) {
+                alert('Accès Premium requis pour télécharger des vidéos vers Vimeo!');
+                return;
+            }
+            
+            const title = document.getElementById('title').value;
+            alert('Téléchargement simulé vers Vimeo: "' + title + '"\n(API Key Vimeo requise pour intégration réelle)');
+            this.reset();
+        });
         
-        function getRandomGradient() {
+        // Boutons principaux
+        document.getElementById('goLiveBtn').addEventListener('click', function() {
+            if (!currentUser) {
+                alert('Veuillez vous connecter d\'abord');
+                return;
+            }
+            alert('Streaming en direct démarré!\n(Intégration Vimeo Live API nécessaire)');
+        });
+        
+        document.getElementById('startStreamBtn').addEventListener('click', function() {
+            if (!currentUser) {
+                alert('Veuillez vous connecter d\'abord');
+                return;
+            }
+            alert('Configuration du stream Vimeo Live\n(Clé API Vimeo requise)');
+        });
+        
+        // Fonctions modales
+        function openModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+        
+        function upgradeToPremium() {
+            if (!currentUser) {
+                alert('Veuillez vous connecter d\'abord');
+                return;
+            }
+            document.getElementById('upgradeModal').style.display = 'block';
+        }
+        
+        function closeUpgradeModal() {
+            document.getElementById('upgradeModal').style.display = 'none';
+        }
+        
+        function processUpgrade() {
+            isPremium = true;
+            currentUser.premium = true;
+            
+            // Afficher le badge premium et le formulaire de téléchargement
+            document.getElementById('premiumBadge').style.display = 'block';
+            document.getElementById('premiumRequired').style.display = 'none';
+            document.getElementById('uploadForm').style.display = 'flex';
+            
+            closeUpgradeModal();
+            alert('Félicitations! Vous êtes maintenant Premium!\nVous pouvez maintenant télécharger des vidéos vers Vimeo.');
+        }
+        
+        function logout() {
+            currentUser = null;
+            isPremium = false;
+            
+            document.getElementById('userInfo').style.display = 'none';
+            document.getElementById('loginBtn').style.display = 'block';
+            document.getElementById('premiumBadge').style.display = 'none';
+            document.getElementById('premiumRequired').style.display = 'block';
+            document.getElementById('uploadForm').style.display = 'none';
+            
+            alert('Déconnexion réussie');
+        }
+        
+        // Fermer les modales en cliquant à l'extérieur
+        window.onclick = function(event) {
+            const loginModal = document.getElementById('loginModal');
+            const upgradeModal = document.getElementById('upgradeModal');
+            if (event.target == loginModal) {
+                closeModal();
+            }
+            if (event.target == upgradeModal) {
+                closeUpgradeModal();
+            }
+        }
+        
+        // Simuler le rafraîchissement des bannières Vimeo
+        setInterval(function() {
+            const banners = document.querySelectorAll('.vimeo-banner');
+            banners.forEach(banner => {
+                banner.style.background = getRandomVimeoGradient();
+            });
+        }, 45000);
+        
+        function getRandomVimeoGradient() {
             const gradients = [
-                'linear-gradient(to right, #2c3e50, #4ca1af)',
-                'linear-gradient(to right, #ff7e5f, #feb47b)',
-                'linear-gradient(to right, #00c9ff, #92fe9d)',
-                'linear-gradient(to right, #fdcbf1, #e6dee9)',
-                'linear-gradient(to right, #654ea3, #eaafc8)'
+                'linear-gradient(to right, #1ab7ea, #0b5394)',
+                'linear-gradient(to right, #00c4cc, #7b68ee)',
+                'linear-gradient(to right, #667db6, #0082c8)',
+                'linear-gradient(to right, #24c6dc, #514a9d)'
             ];
             return gradients[Math.floor(Math.random() * gradients.length)];
         }
